@@ -7,8 +7,8 @@
 
   <!-- Google Fonts for Temple Aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Marcellus&family=Rozha+One&family=Yatra+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Marcellus&family=Rozha+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -39,12 +39,38 @@
       font-family: 'Marcellus', serif;
       background-color: var(--temple-crimson);
       color: var(--dark-stone);
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(201, 147, 48, 0.22) 0%, transparent 60%),
-        repeating-linear-gradient(45deg, rgba(201, 147, 48, 0.03) 0px, rgba(201, 147, 48, 0.03) 2px, transparent 2px, transparent 12px);
       min-height: 100vh;
       overflow-x: hidden;
-      padding-bottom: 30px;
+      position: relative;
+    }
+
+    /* FULLSCREEN BACKGROUND VIDEO */
+    .bg-video-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .bg-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Dark temple ambient overlay on video */
+    .bg-video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(circle at 50% 30%, rgba(61, 4, 11, 0.82) 0%, rgba(25, 2, 5, 0.94) 100%);
+      backdrop-filter: blur(2px);
     }
 
     /* Floating Background Music Control */
@@ -64,14 +90,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
       transition: all 0.3s ease;
     }
     .bg-music-pill:hover {
       transform: scale(1.05);
     }
 
-    /* ROYAL TEMPLE ENVELOPE / ENTRANCE POPUP */
+    /* TEMPLE DOOR / ENVELOPE OPENING POPUP */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -95,28 +121,18 @@
       max-width: 480px;
       background: linear-gradient(160deg, #6e0d19, #380309);
       border: 4px solid var(--brass-gold);
-      border-radius: 24px 24px 16px 16px;
+      border-radius: 24px;
       padding: 40px 24px;
       text-align: center;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(201,147,48,0.3);
-      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), inset 0 0 40px rgba(201,147,48,0.3);
     }
 
-    .temple-door-card::before {
-      content: 'ॐ శ్రీ గణేశాయ నమః ॐ';
+    .ganesh-svg-art {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto 10px;
       display: block;
-      color: var(--bright-gold);
-      font-size: 1rem;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-    }
-
-    .ganesh-svg-seal {
-      width: 82px;
-      height: 82px;
       filter: drop-shadow(0 4px 10px rgba(245, 207, 104, 0.45));
-      margin: 0 auto 12px;
-      display: block;
     }
 
     .envelope-title {
@@ -128,7 +144,7 @@
 
     .envelope-couple {
       font-family: 'Rozha One', serif;
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       color: #fff;
       margin: 16px 0 26px;
       line-height: 1.25;
@@ -161,11 +177,11 @@
     /* TEMPLE SANCTUM MAIN CONTAINER */
     .temple-wrapper {
       max-width: 860px;
-      margin: 35px auto;
+      margin: 35px auto 40px;
       background: var(--sandalwood);
       border-radius: 30px;
       border: var(--border-ornate);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
       overflow: hidden;
       position: relative;
     }
@@ -177,44 +193,20 @@
       padding: 45px 20px 30px;
       text-align: center;
       border-bottom: 4px solid var(--brass-gold);
-      position: relative;
     }
 
-    .temple-header::before {
-      content: '❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖';
-      display: block;
-      color: var(--brass-gold);
-      letter-spacing: 3px;
-      font-size: 0.85rem;
-      margin-bottom: 12px;
-      opacity: 0.85;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    /* LORD GANESHA AT TOP */
+    /* LORD GANESHA TOP BLOCK */
     .lord-ganesh-block {
       display: inline-block;
       margin: 0 auto 12px;
       text-align: center;
     }
-    .lord-ganesh-svg {
-      width: 95px;
-      height: 95px;
-      filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.5));
-    }
-    .ganesh-mantra {
-      color: var(--bright-gold);
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      margin-top: 5px;
-    }
     .shree-subhamastu {
       color: #f7e6b7;
-      font-size: 1rem;
-      margin-top: 4px;
-      letter-spacing: 1.5px;
+      font-size: 1.15rem;
+      margin-top: 10px;
+      letter-spacing: 2px;
+      font-weight: 500;
     }
 
     .invitation-quote {
@@ -252,7 +244,7 @@
       margin: 8px 0;
     }
 
-    /* TOP PHOTO SLOT (IMG_7241.jpg ONLY) */
+    /* TOP PHOTO SLOT (IMG_7241.jpg) */
     .top-photo-section {
       padding: 35px 20px 20px;
       text-align: center;
@@ -261,8 +253,7 @@
     .temple-arch-photo {
       max-width: 520px;
       margin: 0 auto;
-      border: 6px solid #fff;
-      border-radius: 180px 180px 18px 18px; /* Gopuram Arch style top */
+      border-radius: 180px 180px 18px 18px;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(88,8,18,0.25);
       border: 4px solid var(--brass-gold);
@@ -307,7 +298,7 @@
       background: linear-gradient(135deg, #911221 0%, #5d0812 100%);
     }
 
-    /* CEREMONY SACRED DETAILS */
+    /* CEREMONY SACRED DETAILS & LUNCH TIMINGS */
     .ceremony-section {
       padding: 35px 25px;
       text-align: center;
@@ -320,46 +311,56 @@
       position: relative;
     }
     .temple-section-title::after {
-      content: 'ॐ   卐   ॐ';
+      content: '❖   ॐ   ❖';
       display: block;
       font-size: 0.95rem;
       color: var(--brass-gold);
       margin-top: 6px;
     }
 
-    .muhurtham-sacred-card {
-      max-width: 580px;
+    .ceremony-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 650px;
       margin: 0 auto;
+    }
+    .schedule-card {
       background: var(--parchment);
       border: 2px solid #e0c89f;
-      border-top: 6px solid var(--temple-red);
+      border-top: 5px solid var(--temple-red);
       border-radius: 18px;
-      padding: 24px 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 22px 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     }
-    .muhurtham-sacred-card h3 {
-      font-size: 1.4rem;
+    .schedule-card i {
+      font-size: 1.8rem;
       color: var(--temple-red);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .muhurtham-sacred-card p {
-      font-size: 1.15rem;
+    .schedule-card h3 {
+      font-size: 1.25rem;
+      color: var(--temple-red);
+      margin-bottom: 6px;
+    }
+    .schedule-card p {
+      font-size: 1.05rem;
       color: var(--dark-stone);
-      line-height: 1.6;
+      line-height: 1.5;
     }
-    .lagnam-tag {
+    .badge-tag {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 8px;
       background: var(--temple-red);
       color: var(--bright-gold);
-      padding: 5px 16px;
+      padding: 4px 14px;
       border-radius: 30px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       letter-spacing: 1px;
     }
 
-    /* IN-BETWEEN PHOTO SLOT (DSC09288.jpg ONLY) */
+    /* IN-BETWEEN PHOTO SLOT (DSC09288.jpg) */
     .mid-photo-section {
       padding: 30px 20px;
       background: linear-gradient(180deg, #fbf5e8 0%, #f4e8cf 100%);
@@ -383,7 +384,7 @@
       transform: scale(1.02);
     }
 
-    /* DEDICATED VENUE SLOT WITH GOOGLE MAPS */
+    /* DEDICATED SACRED VENUE SLOT WITH GOOGLE MAPS */
     .venue-mandapam-section {
       padding: 45px 25px;
       background: #fffdf9;
@@ -459,26 +460,6 @@
       width: 100%;
       height: 100%;
       border: 0;
-    }
-
-    /* VIDEO SECTION (MUTED, AMBIENT BACKGROUND AUDIO ACTIVE) */
-    .video-highlight-section {
-      padding: 40px 20px;
-      background: #fbf5e8;
-      text-align: center;
-    }
-    .video-temple-frame {
-      max-width: 580px;
-      margin: 15px auto 0;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 4px solid var(--brass-gold);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      background: #000;
-    }
-    .video-temple-frame video {
-      width: 100%;
-      display: block;
     }
 
     /* ACTIONS (GOOGLE CALENDAR & WHATSAPP) */
@@ -562,6 +543,14 @@
 </head>
 <body>
 
+  <!-- BACKGROUND VIDEO -->
+  <div class="bg-video-wrapper">
+    <video autoplay muted loop playsinline poster="DSC09288.jpg">
+      <source src="couple-video.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="bg-video-overlay"></div>
+
   <!-- Hidden YouTube Background Player for Shatamanam Bhavati Song -->
   <div style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
     <div id="yt-player"></div>
@@ -577,9 +566,9 @@
   <div id="envelope-screen">
     <div class="temple-door-card">
       
-      <!-- Lord Ganesha Seal -->
-      <svg class="ganesh-svg-seal" viewBox="0 0 100 100" fill="#f5cf68">
-        <path d="M50 12 C44 12 40 16 38 22 C34 22 30 25 28 29 C25 35 26 44 30 49 C26 53 23 58 23 64 C23 75 32 84 43 85 C45 88 47 90 50 90 C53 90 55 88 57 85 C68 84 77 75 77 64 C77 58 74 53 70 49 C74 44 75 35 72 29 C70 25 66 22 62 22 C60 16 56 12 50 12 Z M50 20 C52 20 54 22 55 25 C51 25 48 25 45 25 C46 22 48 20 50 20 Z M50 32 C55 32 60 36 60 41 C60 46 56 50 51 51 L51 68 C51 70 49 72 47 72 C45 72 43 70 43 68 L43 51 C38 49 35 45 35 40 C35 35 40 32 50 32 Z"/>
+      <!-- Authentic Lord Ganesha Silhouette Vector -->
+      <svg class="ganesh-svg-art" viewBox="0 0 100 100" fill="#f5cf68">
+        <path d="M50 10 C46 10 43 13 42 16 C39 16 36 17 34 19 C31 22 30 26 31 30 C27 33 24 38 24 43 C24 50 28 55 33 58 C31 63 31 69 34 74 C37 80 43 85 50 85 C57 85 63 80 66 74 C69 69 69 63 67 58 C72 55 76 50 76 43 C76 38 73 33 69 30 C70 26 69 22 66 19 C64 17 61 16 58 16 C57 13 54 10 50 10 Z M50 18 C52 18 53 19 54 21 C51 21 49 21 46 21 C47 19 48 18 50 18 Z M45 28 C45 26 47 24 50 24 C53 24 55 26 55 28 C55 31 53 33 50 33 C47 33 45 31 45 28 Z M50 36 C55 36 59 39 59 44 C59 47 57 50 54 52 L54 66 C54 68 52 70 50 70 C48 70 46 68 46 66 L46 52 C43 50 41 47 41 44 C41 39 45 36 50 36 Z M36 41 C38 41 39 42 39 44 C39 46 38 47 36 47 C34 47 33 46 33 44 C33 42 34 41 36 41 Z M64 41 C66 41 67 42 67 44 C67 46 66 47 64 47 C62 47 61 46 61 44 C61 42 62 41 64 41 Z M50 74 C54 74 57 76 58 79 C56 81 53 82 50 82 C47 82 44 81 42 79 C43 76 46 74 50 74 Z"/>
       </svg>
 
       <div class="envelope-title">WEDDING INVITATION</div>
@@ -601,12 +590,11 @@
     <!-- TEMPLE GOPURAM HEADER & LORD GANESH -->
     <header class="temple-header">
       
-      <!-- LORD GANESH AT TOP -->
+      <!-- LORD GANESH LOGO AT TOP -->
       <div class="lord-ganesh-block">
-        <svg class="lord-ganesh-svg" viewBox="0 0 100 100" fill="#f5cf68">
-          <path d="M50 10 C42 10 38 16 36 22 C32 22 28 25 26 30 C23 37 24 45 28 50 C24 54 21 59 21 65 C21 77 31 87 43 88 C45 91 47 93 50 93 C53 93 55 91 57 88 C69 87 79 77 79 65 C79 59 76 54 72 50 C76 45 77 37 74 30 C72 25 68 22 64 22 C62 16 58 10 50 10 Z M50 18 C52 18 54 20 55 24 C51 24 48 24 45 24 C46 20 48 18 50 18 Z M50 30 C56 30 61 35 61 41 C61 47 57 51 51 52 L51 70 C51 72 49 74 47 74 C45 74 43 72 43 70 L43 52 C37 50 33 46 33 40 C33 34 39 30 50 30 Z"/>
+        <svg class="ganesh-svg-art" viewBox="0 0 100 100" fill="#f5cf68" style="width: 95px; height: 95px;">
+          <path d="M50 10 C46 10 43 13 42 16 C39 16 36 17 34 19 C31 22 30 26 31 30 C27 33 24 38 24 43 C24 50 28 55 33 58 C31 63 31 69 34 74 C37 80 43 85 50 85 C57 85 63 80 66 74 C69 69 69 63 67 58 C72 55 76 50 76 43 C76 38 73 33 69 30 C70 26 69 22 66 19 C64 17 61 16 58 16 C57 13 54 10 50 10 Z M50 18 C52 18 53 19 54 21 C51 21 49 21 46 21 C47 19 48 18 50 18 Z M45 28 C45 26 47 24 50 24 C53 24 55 26 55 28 C55 31 53 33 50 33 C47 33 45 31 45 28 Z M50 36 C55 36 59 39 59 44 C59 47 57 50 54 52 L54 66 C54 68 52 70 50 70 C48 70 46 68 46 66 L46 52 C43 50 41 47 41 44 C41 39 45 36 50 36 Z M36 41 C38 41 39 42 39 44 C39 46 38 47 36 47 C34 47 33 46 33 44 C33 42 34 41 36 41 Z M64 41 C66 41 67 42 67 44 C67 46 66 47 64 47 C62 47 61 46 61 44 C61 42 62 41 64 41 Z M50 74 C54 74 57 76 58 79 C56 81 53 82 50 82 C47 82 44 81 42 79 C43 76 46 74 50 74 Z"/>
         </svg>
-        <div class="ganesh-mantra">॥ శ్రీ గణేశాయ నమః ॥</div>
         <div class="shree-subhamastu">|| శ్రీరస్తు | శుభమస్తు | అవిఘ్నమస్తు ||</div>
       </div>
 
@@ -640,14 +628,26 @@
       </button>
     </div>
 
-    <!-- CEREMONY DETAILS (TIMINGS REMOVED, LAGNAM RETAINED) -->
+    <!-- CEREMONY DETAILS: SUMUHURTHAM & LUNCH TIMINGS -->
     <section class="ceremony-section">
-      <h2 class="temple-section-title">Auspicious Sumuhurtham</h2>
+      <h2 class="temple-section-title">Auspicious Occasions</h2>
       
-      <div class="muhurtham-sacred-card">
-        <h3>Divine Nuptials</h3>
-        <p><strong>Sunday, 22nd November 2026</strong></p>
-        <div class="lagnam-tag">Dhanur Lagnam</div>
+      <div class="ceremony-grid">
+        <!-- Sumuhurtham Card -->
+        <div class="schedule-card">
+          <i class="fa-solid fa-ring"></i>
+          <h3>Sumuhurtham</h3>
+          <p><strong>Sunday, 22nd November 2026</strong></p>
+          <div class="badge-tag">Dhanur Lagnam</div>
+        </div>
+
+        <!-- Lunch Card -->
+        <div class="schedule-card">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Lunch</h3>
+          <p><strong>1:00 PM Onwards</strong></p>
+          <div class="badge-tag">Traditional Feast</div>
+        </div>
       </div>
     </section>
 
@@ -688,28 +688,13 @@
       </div>
     </section>
 
-    <!-- VIDEO HIGHLIGHT (MUTED AUDIO, SEAMLESS AMBIENT PLAYBACK) -->
-    <section class="video-highlight-section">
-      <h2 class="temple-section-title">Special Moments</h2>
-      <div class="video-temple-frame">
-        <!-- Video audio is muted so that the Telugu wedding song in the background remains clear -->
-        <video muted autoplay loop playsinline controls poster="DSC09288.jpg">
-          <source src="couple-video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <p style="font-size: 0.85rem; color: #7a6358; margin-top: 10px; font-style: italic;">
-        (Video is muted to enjoy the background wedding song)
-      </p>
-    </section>
-
     <!-- CALENDAR & WHATSAPP ACTION BUTTONS -->
     <div class="temple-actions-bar">
-      <a class="btn-action-temple btn-cal-g" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Vinitha+%26+Udayeshwar&dates=20261122T040000Z/20261122T100000Z&details=Auspicious+Wedding+Ceremony+under+Dhanur+Lagnam+at+Vinayaka+Convention,+Tandur.&location=Vinayaka+Convention,+Tandur,+Vikarabad+Dist.">
+      <a class="btn-action-temple btn-cal-g" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Vinitha+%26+Udayeshwar&dates=20261122T040000Z/20261122T100000Z&details=Auspicious+Wedding+Ceremony+under+Dhanur+Lagnam+followed+by+Lunch+at+1:00+PM+at+Vinayaka+Convention,+Tandur.&location=Vinayaka+Convention,+Tandur,+Vikarabad+Dist.">
         <i class="fa-solid fa-calendar-check"></i> Add to Google Calendar
       </a>
 
-      <a class="btn-action-temple btn-wa-g" target="_blank" href="https://api.whatsapp.com/send?text=You%20are%20cordially%20invited%20to%20the%20Wedding%20Ceremony%20of%20Vinitha%20%26%20Udayeshwar%20on%2022nd%20November%202026%20at%20Vinayaka%20Convention,%20Tandur!">
+      <a class="btn-action-temple btn-wa-g" target="_blank" href="https://api.whatsapp.com/send?text=You%20are%20cordially%20invited%20to%20the%20Wedding%20Ceremony%20of%20Vinitha%20%26%20Udayeshwar%20on%2022nd%20November%202026%20at%20Vinayaka%20Convention,%20Tandur!%20Lunch%20at%201:00%20PM.">
         <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
       </a>
     </div>
@@ -803,7 +788,6 @@
     // Sacred Yellow Rice (Akshathalu), Marigold & Rose Petals Shower
     function showerSacredAkshathalu() {
       if (typeof confetti === 'function') {
-        // Golden rice grains
         confetti({
           particleCount: 80,
           angle: 60,
@@ -811,7 +795,6 @@
           origin: { x: 0, y: 0.65 },
           colors: ['#f5cf68', '#d4af37', '#b5121b', '#ffffff']
         });
-        // Temple flower petals
         confetti({
           particleCount: 80,
           angle: 120,
