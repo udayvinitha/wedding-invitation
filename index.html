@@ -19,8 +19,8 @@
   <style>
     :root {
       --bg-dark: #121814;
-      --glass-bg: rgba(255, 255, 255, 0.88);
-      --glass-card: rgba(255, 255, 255, 0.75);
+      --glass-bg: rgba(255, 255, 255, 0.90);
+      --glass-card: rgba(255, 255, 255, 0.85);
       --glass-border: rgba(212, 175, 55, 0.35);
       --gold-primary: #c59b27;
       --gold-light: #f7e7b4;
@@ -78,7 +78,7 @@
       bottom: 24px;
       right: 24px;
       z-index: 9999;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
       color: var(--royal-emerald);
       border: 1px solid var(--gold-primary);
@@ -184,7 +184,7 @@
 
     /* MAIN CONTAINER: GLASSMORPHIC LUXURY */
     .invitation-container {
-      max-width: 840px;
+      max-width: 860px;
       margin: 45px auto;
       background: var(--glass-bg);
       backdrop-filter: blur(18px);
@@ -196,20 +196,19 @@
       position: relative;
     }
 
-    /* MINIMAL LUXURY HEADER */
+    /* HEADER SECTION */
     .modern-header {
       padding: 50px 28px 35px;
       text-align: center;
       background: linear-gradient(180deg, rgba(247, 243, 235, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
       border-bottom: 1px solid rgba(197, 155, 39, 0.2);
-      position: relative;
     }
 
     .logo-badge {
       display: inline-block;
       padding: 14px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       border: 1px solid var(--gold-primary);
       box-shadow: 0 8px 24px rgba(197, 155, 39, 0.2);
       margin-bottom: 14px;
@@ -322,18 +321,14 @@
       background: #17291d;
     }
 
-    /* ITINERARY: SUMUHURTHAM (EXACT TIME) & LUNCH */
-    .itinerary-section {
-      padding: 45px 28px;
-      text-align: center;
-      background: #ffffff;
-    }
+    /* SECTION TITLES */
     .modern-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.9rem;
       color: var(--royal-emerald);
       margin-bottom: 25px;
       font-weight: 700;
+      text-align: center;
     }
     .modern-title::after {
       content: '';
@@ -344,6 +339,83 @@
       margin: 10px auto 0;
     }
 
+    /* OUR JOURNEY SECTION */
+    .journey-section {
+      padding: 50px 28px 45px;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(197, 155, 39, 0.18);
+    }
+    .journey-subtitle {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-top: -15px;
+      margin-bottom: 35px;
+      font-style: italic;
+    }
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .journey-card {
+      background: #faf9f6;
+      border: 1px solid rgba(197, 155, 39, 0.28);
+      border-radius: 20px;
+      padding: 24px 16px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .journey-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+    .journey-icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: var(--royal-emerald);
+      color: var(--gold-light);
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+    .journey-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--royal-emerald);
+      margin-bottom: 6px;
+    }
+    .journey-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .journey-card .step-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(197, 155, 39, 0.15);
+      color: var(--gold-dark);
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* ITINERARY: SUMUHURTHAM & LUNCH */
+    .itinerary-section {
+      padding: 45px 28px;
+      text-align: center;
+      background: #fdfcf9;
+    }
     .events-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -352,7 +424,7 @@
       margin: 0 auto;
     }
     .modern-event-card {
-      background: #faf9f6;
+      background: #ffffff;
       border: 1px solid rgba(197, 155, 39, 0.25);
       border-radius: 20px;
       padding: 28px 22px;
@@ -421,10 +493,82 @@
       transform: scale(1.02);
     }
 
+    /* FAMILY DETAILS SECTION */
+    .family-section {
+      padding: 50px 28px;
+      background: #ffffff;
+      border-top: 1px solid rgba(197, 155, 39, 0.18);
+    }
+    .family-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .family-card {
+      background: #faf9f6;
+      border: 1px solid rgba(197, 155, 39, 0.28);
+      border-radius: 24px;
+      padding: 32px 26px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .family-header-badge {
+      display: inline-block;
+      background: var(--royal-emerald);
+      color: var(--gold-light);
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .family-member-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    .family-member-item {
+      padding: 12px 14px;
+      border-bottom: 1px dashed rgba(197, 155, 39, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .family-member-item:last-child {
+      border-bottom: none;
+    }
+    .member-role {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .member-role i {
+      color: var(--gold-primary);
+      font-size: 0.95rem;
+    }
+    .member-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--royal-emerald);
+      text-align: right;
+    }
+
     /* DEDICATED VENUE SLOT WITH GOOGLE MAPS */
     .venue-modern-section {
       padding: 45px 28px;
-      background: #ffffff;
+      background: #fdfcf9;
       border-top: 1px solid rgba(197, 155, 39, 0.18);
       border-bottom: 1px solid rgba(197, 155, 39, 0.18);
       text-align: center;
@@ -432,7 +576,7 @@
     .venue-modern-card {
       max-width: 680px;
       margin: 0 auto;
-      background: #fbfbf9;
+      background: #ffffff;
       border: 1px solid rgba(197, 155, 39, 0.3);
       border-radius: 24px;
       padding: 34px 24px;
@@ -577,6 +721,7 @@
       .invitation-container { margin: 16px 12px; border-radius: 24px; }
       .modern-arch-frame img { height: 380px; }
       .modern-music-btn { bottom: 16px; right: 16px; padding: 9px 16px; font-size: 0.78rem; }
+      .journey-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
   </style>
 </head>
@@ -624,8 +769,6 @@
 
     <!-- HEADER SECTION -->
     <header class="modern-header">
-      
-      <!-- Sole Clean Centered Ganesha Logo -->
       <div class="logo-badge">
         <img src="png.png" alt="Lord Ganesha" onerror="this.src='png.jpg'" />
       </div>
@@ -638,12 +781,12 @@
 
       <div class="names-section">
         <span class="bride-name">Chi.La.Sow. Vinitha</span>
-        <p class="parents-note">(Only D/o. Smt. &amp; Sri Mallepally Rajini - Madhusudhan)</p>
+        <p class="parents-note">(Eldest D/o. Smt. &amp; Sri Mallepally Rajini - Madhusudhan)</p>
 
         <div class="modern-ampersand">&amp;</div>
 
         <span class="groom-name">Chi. Udayeshwar</span>
-        <p class="parents-note">(Eldest S/o. Smt. &amp; Sri Voleti Supriya - Sivananda)</p>
+        <p class="parents-note">(Eldest S/o. Smt. &amp; Sri Voleti Supriya - Shivananda)</p>
       </div>
     </header>
 
@@ -662,7 +805,55 @@
       </button>
     </div>
 
-    <!-- CEREMONY DETAILS: SUMUHURTHAM (EXACT TIME 9:32 AM) & LUNCH AT 1:00 PM -->
+    <!-- OUR JOURNEY TIMELINE COLUMN -->
+    <section class="journey-section">
+      <h2 class="modern-title">Our Journey</h2>
+      <p class="journey-subtitle">Every love story is beautiful, but ours is our favorite</p>
+
+      <div class="journey-grid">
+        <!-- Fixation -->
+        <div class="journey-card">
+          <div class="journey-icon-wrap">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <h4>Fixation</h4>
+          <p>26 February 2026</p>
+          <span class="step-badge">The Beginning</span>
+        </div>
+
+        <!-- Engagement -->
+        <div class="journey-card">
+          <div class="journey-icon-wrap">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h4>Engagement</h4>
+          <p>30 August 2026</p>
+          <span class="step-badge">Promise Made</span>
+        </div>
+
+        <!-- Wedding -->
+        <div class="journey-card">
+          <div class="journey-icon-wrap">
+            <i class="fa-solid fa-ring"></i>
+          </div>
+          <h4>Wedding</h4>
+          <p>22 November 2026</p>
+          <span class="step-badge">The Big Day</span>
+        </div>
+
+        <!-- Reception -->
+        <div class="journey-card">
+          <div class="journey-icon-wrap">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <h4>Reception</h4>
+          <p>29 November 2026</p>
+          <span class="step-badge">Celebration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEREMONY DETAILS: SUMUHURTHAM & LUNCH -->
     <section class="itinerary-section">
       <h2 class="modern-title">Ceremony &amp; Celebrations</h2>
       
@@ -691,6 +882,59 @@
     <section class="mid-photo-area">
       <div class="modern-landscape-frame">
         <img src="DSC09288.jpg" alt="Vinitha and Udayeshwar" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80'" />
+      </div>
+    </section>
+
+    <!-- FAMILY DETAILS SECTION -->
+    <section class="family-section">
+      <h2 class="modern-title">Family Details</h2>
+
+      <div class="family-grid">
+        <!-- Bride's Family -->
+        <div class="family-card">
+          <div class="family-header-badge">Bride's Family</div>
+          <ul class="family-member-list">
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-heart"></i> Bride</span>
+              <span class="member-name">Vinitha</span>
+            </li>
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-user-tie"></i> Father</span>
+              <span class="member-name">Madhusudhan</span>
+            </li>
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-person-dress"></i> Mother</span>
+              <span class="member-name">Rajani</span>
+            </li>
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-user"></i> Brother</span>
+              <span class="member-name">Parimal</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Groom's Family -->
+        <div class="family-card">
+          <div class="family-header-badge">Groom's Family</div>
+          <ul class="family-member-list">
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-heart"></i> Groom</span>
+              <span class="member-name">Udayeshwar</span>
+            </li>
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-user-tie"></i> Father</span>
+              <span class="member-name">Sivananda</span>
+            </li>
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-person-dress"></i> Mother</span>
+              <span class="member-name">Supriya</span>
+            </li>
+            <li class="family-member-item">
+              <span class="member-role"><i class="fa-solid fa-user"></i> Brother</span>
+              <span class="member-name">Rajeshwar</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -740,6 +984,10 @@
       <div class="footer-host-label">Invited by</div>
       <div class="footer-host-names">Smt. Mallepally Saraswathi &amp; Sri Mallepally Venkatesham</div>
       <p class="footer-compliments">With best compliments from : Near &amp; Dear</p>
+      
+      <div class="footer-designer-credit">
+        Designed By Rajesh Voleti
+      </div>
     </footer>
 
   </div>
