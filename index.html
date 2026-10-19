@@ -339,6 +339,57 @@
       margin: 10px auto 0;
     }
 
+    /* COUNTDOWN TIMER SECTION */
+    .countdown-section {
+      padding: 40px 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #faf8f4 100%);
+      text-align: center;
+      border-bottom: 1px solid rgba(197, 155, 39, 0.18);
+    }
+    .countdown-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-top: -15px;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    .timer-cards-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .timer-unit-box {
+      background: #ffffff;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      border-radius: 18px;
+      min-width: 110px;
+      padding: 18px 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .timer-unit-box:hover {
+      transform: translateY(-3px);
+    }
+    .timer-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--royal-emerald);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .timer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
     /* OUR JOURNEY SECTION */
     .journey-section {
       padding: 50px 28px 45px;
@@ -722,6 +773,9 @@
       .modern-arch-frame img { height: 380px; }
       .modern-music-btn { bottom: 16px; right: 16px; padding: 9px 16px; font-size: 0.78rem; }
       .journey-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .timer-unit-box { min-width: 70px; padding: 12px 6px; }
+      .timer-number { font-size: 1.6rem; }
+      .timer-label { font-size: 0.65rem; }
     }
   </style>
 </head>
@@ -804,6 +858,31 @@
         <span>Shower Blessings &amp; Flowers</span>
       </button>
     </div>
+
+    <!-- LIVE WEDDING COUNTDOWN TIMER -->
+    <section class="countdown-section">
+      <h2 class="modern-title">Counting Down to Forever</h2>
+      <p class="countdown-subtitle">Until we tie the knot in sacred matrimony</p>
+
+      <div class="timer-cards-wrapper">
+        <div class="timer-unit-box">
+          <div class="timer-number" id="timer-days">00</div>
+          <div class="timer-label">Days</div>
+        </div>
+        <div class="timer-unit-box">
+          <div class="timer-number" id="timer-hours">00</div>
+          <div class="timer-label">Hours</div>
+        </div>
+        <div class="timer-unit-box">
+          <div class="timer-number" id="timer-minutes">00</div>
+          <div class="timer-label">Minutes</div>
+        </div>
+        <div class="timer-unit-box">
+          <div class="timer-number" id="timer-seconds">00</div>
+          <div class="timer-label">Seconds</div>
+        </div>
+      </div>
+    </section>
 
     <!-- OUR JOURNEY TIMELINE COLUMN -->
     <section class="journey-section">
@@ -1084,6 +1163,37 @@
         });
       }
     }
+
+    // LIVE WEDDING COUNTDOWN TIMER SCRIPT
+    // Wedding Date: November 22, 2026, 09:32:00 IST (+05:30)
+    var weddingDate = new Date("2026-11-22T09:32:00+05:30").getTime();
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById("timer-days").innerText = "00";
+        document.getElementById("timer-hours").innerText = "00";
+        document.getElementById("timer-minutes").innerText = "00";
+        document.getElementById("timer-seconds").innerText = "00";
+        return;
+      }
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer-days").innerText = days < 10 ? "0" + days : days;
+      document.getElementById("timer-hours").innerText = hours < 10 ? "0" + hours : hours;
+      document.getElementById("timer-minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("timer-seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    }
+
+    // Initialize and run countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
