@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vinitha & Udayeshwar | Wedding Invitation</title>
+  <title>Wedding Invitation | Vinitha & Udayeshwar</title>
 
-  <!-- Google Fonts: Traditional & Telugu Serif -->
+  <!-- Modern Luxury Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Marcellus&family=Tiro+Telugu:ital@0;1&family=Rozha+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Tiro+Telugu&display=swap" rel="stylesheet" />
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Confetti library for Akshathalu shower -->
+  <!-- Confetti library for celebration shower -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <style>
     :root {
-      /* Soft Andhra Pastel Temple Palette */
-      --pastel-ivory: #faf7f0;
-      --pastel-sand: #f5eedc;
-      --pastel-haldi: #fff9e6;
-      --pastel-banana: #eef6ee;
-      --leaf-green: #3d6e40;
-      --soft-kumkum: #781726;
-      --temple-maroon: #5b0f1b;
-      --temple-gold: #c29034;
-      --bright-gold: #eed075;
-      --text-brown: #33221e;
-      --border-telugu: 3px solid var(--temple-gold);
+      --bg-dark: #121814;
+      --glass-bg: rgba(255, 255, 255, 0.88);
+      --glass-card: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(212, 175, 55, 0.35);
+      --gold-primary: #c59b27;
+      --gold-light: #f7e7b4;
+      --gold-dark: #916f15;
+      --gold-gradient: linear-gradient(135deg, #b88a2a 0%, #f4df91 40%, #996e14 70%, #faebb8 100%);
+      --text-main: #1f2621;
+      --text-muted: #5e6b62;
+      --royal-emerald: #1e3325;
+      --accent-rose: #d68087;
     }
 
     * {
@@ -39,16 +39,16 @@
     }
 
     body {
-      font-family: 'Marcellus', 'Tiro Telugu', serif;
-      background-color: #ede2cf;
-      color: var(--text-brown);
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* FULLSCREEN BACKGROUND VIDEO */
-    .bg-video-container {
+    /* BACKGROUND VIDEO */
+    .bg-video-wrapper {
       position: fixed;
       inset: 0;
       width: 100vw;
@@ -56,541 +56,539 @@
       z-index: -2;
       overflow: hidden;
     }
-    .bg-video-container video {
+    .bg-video-wrapper video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: saturate(1.1) brightness(0.9);
     }
-    .pastel-temple-overlay {
+    .modern-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
       z-index: -1;
-      background: 
-        radial-gradient(circle at 50% 30%, rgba(250, 247, 240, 0.88) 0%, rgba(237, 226, 207, 0.96) 100%),
-        repeating-linear-gradient(45deg, rgba(194, 144, 52, 0.04) 0px, rgba(194, 144, 52, 0.04) 2px, transparent 2px, transparent 14px);
-      backdrop-filter: blur(2px);
+      background: radial-gradient(circle at 50% 20%, rgba(18, 24, 20, 0.72) 0%, rgba(10, 14, 11, 0.92) 100%);
+      backdrop-filter: blur(5px);
     }
 
-    /* FLOATING MUSIC BADGE */
-    .music-badge-pill {
+    /* FLOATING MUSIC PILL */
+    .modern-music-btn {
       position: fixed;
       bottom: 24px;
       right: 24px;
       z-index: 9999;
-      background: linear-gradient(135deg, #c29034, #eed075);
-      color: var(--temple-maroon);
-      border: 2px solid #fff;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      color: var(--royal-emerald);
+      border: 1px solid var(--gold-primary);
       border-radius: 50px;
-      padding: 11px 20px;
-      font-weight: 700;
-      font-size: 0.86rem;
+      padding: 10px 20px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
     }
-    .music-badge-pill:hover {
-      transform: scale(1.05);
+    .modern-music-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.4);
     }
 
-    /* TRADITIONAL TELUGU SUBHALEKHA ENVELOPE / ENTRANCE */
-    #invitation-envelope {
+    /* MINIMALIST ROYAL ENVELOPE OVERLAY */
+    #entrance-screen {
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: radial-gradient(circle, #4f0a15 0%, #1a0206 100%);
+      background: radial-gradient(circle at center, #1b281f 0%, #0d1410 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      transition: opacity 1.1s ease, visibility 1.1s ease;
+      padding: 24px;
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    #invitation-envelope.hidden {
+    #entrance-screen.hidden {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
     }
-    .envelope-subhalekha {
+
+    .entrance-card {
       width: 100%;
-      max-width: 480px;
-      background: var(--pastel-ivory);
-      border: 6px double var(--temple-gold);
-      border-radius: 24px;
-      padding: 35px 22px;
+      max-width: 440px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 28px;
+      padding: 42px 28px;
       text-align: center;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.7), inset 0 0 25px rgba(194, 144, 52, 0.15);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
       position: relative;
     }
-    .envelope-logo {
+
+    .entrance-logo {
       width: 120px;
       height: auto;
-      margin: 0 auto 12px;
+      margin: 0 auto 16px;
       display: block;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.4));
     }
-    .envelope-subha-text {
-      color: var(--soft-kumkum);
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
+
+    .entrance-subtitle {
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 8px;
     }
-    .envelope-couple-text {
-      font-family: 'Rozha One', serif;
+
+    .entrance-names {
+      font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
-      color: var(--temple-maroon);
-      margin: 10px 0 24px;
+      color: #ffffff;
+      font-weight: 600;
       line-height: 1.25;
+      margin-bottom: 28px;
     }
-    .open-subhalekha-btn {
-      width: 86px;
-      height: 86px;
+
+    .entrance-open-btn {
+      width: 82px;
+      height: 82px;
       border-radius: 50%;
-      background: radial-gradient(circle, #ffe699 0%, #c49233 80%, #7b5310 100%);
-      border: 3px solid #fff;
+      background: var(--gold-gradient);
+      border: 3px solid rgba(255, 255, 255, 0.6);
       margin: 0 auto;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--temple-maroon);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      animation: pulseHaldi 2.2s infinite;
+      color: #1a241c;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      animation: pulseModern 2.2s infinite;
+      transition: transform 0.3s ease;
     }
-    @keyframes pulseHaldi {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(194, 144, 52, 0.6); }
-      50% { transform: scale(1.08); box-shadow: 0 0 0 16px rgba(194, 144, 52, 0); }
+    @keyframes pulseModern {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.7); }
+      50% { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(197, 155, 39, 0); }
     }
-    .open-subhalekha-btn i { font-size: 1.7rem; margin-bottom: 2px; }
-    .open-subhalekha-btn span { font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; }
+    .entrance-open-btn i { font-size: 1.6rem; margin-bottom: 2px; }
+    .entrance-open-btn span { font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px; }
 
-    /* MAIN ANDHRA TEMPLE MANDAPAM CONTAINER */
-    .kalyana-mandapam-wrapper {
-      max-width: 860px;
-      margin: 30px auto 40px;
-      background: var(--pastel-ivory);
-      border-radius: 28px;
-      border: 6px double var(--temple-gold);
-      box-shadow: 0 20px 50px rgba(80, 20, 20, 0.15);
+    /* MAIN CONTAINER: GLASSMORPHIC LUXURY */
+    .invitation-container {
+      max-width: 840px;
+      margin: 45px auto;
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 32px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
       overflow: hidden;
       position: relative;
     }
 
-    /* TOP TEMPLE GOPURAM & BANANA LEAVES HEADER */
-    .mandapam-header {
-      background: linear-gradient(180deg, #fbf2e0 0%, #f6e8cc 100%);
-      padding: 30px 20px 25px;
+    /* MINIMAL LUXURY HEADER */
+    .modern-header {
+      padding: 50px 28px 35px;
       text-align: center;
-      border-bottom: 3px solid var(--temple-gold);
+      background: linear-gradient(180deg, rgba(247, 243, 235, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
+      border-bottom: 1px solid rgba(197, 155, 39, 0.2);
       position: relative;
     }
 
-    /* SVG Gopuram at Summit */
-    .temple-gopuram-svg {
-      width: 100%;
-      max-width: 290px;
-      height: auto;
-      margin: 0 auto 10px;
-      display: block;
-      filter: drop-shadow(0 2px 5px rgba(194, 144, 52, 0.35));
-    }
-
-    /* Mango Leaves & Marigold Garland Toranam */
-    .mango-leaf-toranam {
-      width: 100%;
-      height: 24px;
-      margin-bottom: 12px;
-      background-repeat: repeat-x;
-      background-size: 40px 24px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 24'%3E%3Cpath d='M20 0 C12 10 10 20 20 24 C30 20 28 10 20 0 Z' fill='%233d6e40'/%3E%3Ccircle cx='20' cy='2' r='2' fill='%23e67e22'/%3E%3Ccircle cx='10' cy='1' r='2' fill='%23f1c40f'/%3E%3Ccircle cx='30' cy='1' r='2' fill='%23f1c40f'/%3E%3C/svg%3E");
-    }
-
-    /* BANANA TREES (ARATI CHETLU) DECORATION FLANKING SIDES */
-    .banana-tree-left, .banana-tree-right {
-      position: absolute;
-      top: 15px;
-      width: 48px;
-      height: 120px;
-      pointer-events: none;
-      opacity: 0.9;
-    }
-    .banana-tree-left { left: 16px; }
-    .banana-tree-right { right: 16px; transform: scaleX(-1); }
-
-    /* SINGLE TOP LOGO (png.png) */
-    .top-logo-circle {
+    .logo-badge {
       display: inline-block;
-      padding: 10px;
+      padding: 14px;
       border-radius: 50%;
-      background: radial-gradient(circle, #fffdf8, #f5ecd6);
-      border: 3px solid var(--temple-gold);
-      box-shadow: 0 6px 18px rgba(194, 144, 52, 0.25);
-      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--gold-primary);
+      box-shadow: 0 8px 24px rgba(197, 155, 39, 0.2);
+      margin-bottom: 14px;
     }
-    .top-logo-circle img {
-      width: 140px;
+    .logo-badge img {
+      width: 125px;
       height: auto;
       display: block;
       margin: 0 auto;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
     }
 
-    .telugu-invocation-text {
-      color: var(--soft-kumkum);
-      font-size: 1.25rem;
-      font-weight: 700;
+    .telugu-header-hymn {
+      font-family: 'Tiro Telugu', serif;
+      font-size: 1.15rem;
+      color: var(--royal-emerald);
       letter-spacing: 2px;
-      margin: 8px 0;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
-    .andhra-invitation-message {
-      font-size: 1.05rem;
-      max-width: 630px;
-      margin: 0 auto 15px;
+    .solicit-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      max-width: 620px;
+      margin: 0 auto 20px;
       line-height: 1.6;
-      color: #52352c;
+      color: var(--text-muted);
       font-style: italic;
     }
 
     /* COUPLE NAMES */
-    .couple-kalyanam-block {
-      margin: 20px 0 10px;
+    .names-section {
+      margin: 25px 0 10px;
     }
     .bride-name, .groom-name {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 2.3rem;
-      font-weight: 900;
-      color: var(--temple-maroon);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--royal-emerald);
       display: block;
       line-height: 1.2;
+      letter-spacing: -0.5px;
     }
-    .parents-telugu-desc {
-      font-size: 0.95rem;
-      color: #6a443a;
-      margin-top: 4px;
+    .parents-note {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      font-weight: 400;
     }
-    .kalyanam-knot {
-      font-family: 'Rozha One', serif;
-      font-size: 2.3rem;
-      color: var(--temple-gold);
-      margin: 6px 0;
+    .modern-ampersand {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold-primary);
+      margin: 8px 0;
+      font-style: italic;
     }
 
     /* TOP PHOTO SLOT (IMG_7241.jpg ONLY) */
-    .top-photo-mandapam {
-      padding: 35px 20px 20px;
+    .top-photo-area {
+      padding: 35px 24px 25px;
       text-align: center;
-      background: var(--pastel-banana);
+      background: rgba(255, 255, 255, 0.4);
     }
-    .mandapam-photo-frame {
-      max-width: 520px;
+    .modern-arch-frame {
+      max-width: 500px;
       margin: 0 auto;
-      border-radius: 200px 200px 20px 20px; /* Temple Arch Gopuram Outline */
+      border-radius: 250px 250px 24px 24px;
       overflow: hidden;
-      border: 5px solid var(--temple-gold);
-      box-shadow: 0 16px 35px rgba(61, 110, 64, 0.2);
+      border: 3px solid #ffffff;
+      outline: 1px solid var(--gold-primary);
+      box-shadow: 0 18px 45px rgba(22, 38, 28, 0.15);
       background: #fff;
     }
-    .mandapam-photo-frame img {
+    .modern-arch-frame img {
       width: 100%;
-      height: 480px;
+      height: 490px;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
-    .mandapam-photo-frame:hover img {
+    .modern-arch-frame:hover img {
       transform: scale(1.03);
     }
 
-    /* AKSHATHALU SHOWER BUTTON */
-    .akshathalu-action-bar {
+    /* CELEBRATION SHOWER BUTTON */
+    .celebration-action-area {
       text-align: center;
-      padding: 22px 15px;
-      background: var(--pastel-banana);
-      border-bottom: 2px dashed #c8dbca;
+      padding: 22px 20px;
+      background: rgba(255, 255, 255, 0.6);
+      border-bottom: 1px solid rgba(197, 155, 39, 0.15);
     }
-    .btn-akshathalu-telugu {
-      background: linear-gradient(135deg, #781726, #5b0f1b);
-      color: var(--bright-gold);
-      border: 2px solid var(--temple-gold);
-      padding: 13px 30px;
-      font-size: 1.05rem;
-      font-weight: 700;
+    .btn-celebrate {
+      background: var(--royal-emerald);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+      padding: 13px 32px;
+      font-size: 0.95rem;
+      font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 6px 18px rgba(120, 23, 38, 0.25);
+      box-shadow: 0 8px 24px rgba(30, 51, 37, 0.25);
       display: inline-flex;
       align-items: center;
       gap: 12px;
       transition: all 0.3s ease;
     }
-    .btn-akshathalu-telugu:hover {
+    .btn-celebrate:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(120, 23, 38, 0.35);
-      background: linear-gradient(135deg, #8d1e2f, #6d1422);
+      box-shadow: 0 12px 30px rgba(30, 51, 37, 0.35);
+      background: #17291d;
     }
 
-    /* OCCASIONS: SUMUHURTHAM & LUNCH AT 1:00 PM */
-    .muhurtham-section {
-      padding: 40px 25px;
+    /* ITINERARY: SUMUHURTHAM (EXACT TIME) & LUNCH */
+    .itinerary-section {
+      padding: 45px 28px;
       text-align: center;
-      background: var(--pastel-haldi);
+      background: #ffffff;
     }
-    .section-telugu-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 1.8rem;
-      color: var(--temple-maroon);
-      margin-bottom: 20px;
-      position: relative;
+    .modern-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--royal-emerald);
+      margin-bottom: 25px;
+      font-weight: 700;
     }
-    .section-telugu-title::after {
-      content: '❖   ॥ శుభ ముహూర్తం ॥   ❖';
+    .modern-title::after {
+      content: '';
       display: block;
-      font-size: 0.95rem;
-      color: var(--temple-gold);
-      margin-top: 6px;
+      width: 48px;
+      height: 2px;
+      background: var(--gold-primary);
+      margin: 10px auto 0;
     }
 
-    .muhurtham-cards-grid {
+    .events-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      max-width: 660px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 680px;
       margin: 0 auto;
     }
-    .andhra-patrika-card {
-      background: #ffffff;
-      border: 2px solid #ecd8af;
-      border-top: 6px solid var(--soft-kumkum);
-      border-radius: 18px;
-      padding: 24px 20px;
-      box-shadow: 0 6px 20px rgba(194, 144, 52, 0.1);
+    .modern-event-card {
+      background: #faf9f6;
+      border: 1px solid rgba(197, 155, 39, 0.25);
+      border-radius: 20px;
+      padding: 28px 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+      position: relative;
+      transition: transform 0.3s ease;
     }
-    .andhra-patrika-card i {
+    .modern-event-card:hover {
+      transform: translateY(-3px);
+    }
+    .modern-event-card i {
       font-size: 2rem;
-      color: var(--soft-kumkum);
-      margin-bottom: 10px;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
     }
-    .andhra-patrika-card h3 {
-      font-size: 1.3rem;
-      color: var(--temple-maroon);
+    .modern-event-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--royal-emerald);
       margin-bottom: 6px;
     }
-    .andhra-patrika-card p {
-      font-size: 1.05rem;
-      line-height: 1.5;
-    }
-    .haldi-badge {
-      display: inline-block;
-      margin-top: 8px;
-      background: var(--pastel-sand);
-      color: var(--temple-maroon);
-      border: 1px solid var(--temple-gold);
-      padding: 4px 16px;
-      border-radius: 30px;
+    .event-time-display {
+      font-size: 1.35rem;
       font-weight: 700;
-      font-size: 0.9rem;
+      color: var(--royal-emerald);
+      margin: 8px 0;
+      letter-spacing: 0.5px;
+    }
+    .event-date-display {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .modern-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(197, 155, 39, 0.12);
+      color: var(--gold-dark);
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
     }
 
     /* IN-BETWEEN PHOTO (DSC09288.jpg ONLY) */
-    .mid-photo-mandapam {
-      padding: 30px 20px;
-      background: linear-gradient(180deg, var(--pastel-haldi) 0%, var(--pastel-sand) 100%);
+    .mid-photo-area {
+      padding: 35px 24px;
+      background: rgba(247, 245, 240, 0.7);
       text-align: center;
     }
-    .mid-mandapam-frame {
-      max-width: 620px;
+    .modern-landscape-frame {
+      max-width: 640px;
       margin: 0 auto;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      border: 5px solid var(--temple-gold);
-      box-shadow: 0 16px 35px rgba(0,0,0,0.15);
-      background: #fff;
+      border: 3px solid #ffffff;
+      outline: 1px solid var(--gold-primary);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
     }
-    .mid-mandapam-frame img {
+    .modern-landscape-frame img {
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
-    .mid-mandapam-frame:hover img {
+    .modern-landscape-frame:hover img {
       transform: scale(1.02);
     }
 
     /* DEDICATED VENUE SLOT WITH GOOGLE MAPS */
-    .venue-mandapam-slot {
-      padding: 45px 25px;
+    .venue-modern-section {
+      padding: 45px 28px;
       background: #ffffff;
-      border-top: 2px dashed #ded0b7;
-      border-bottom: 2px dashed #ded0b7;
+      border-top: 1px solid rgba(197, 155, 39, 0.18);
+      border-bottom: 1px solid rgba(197, 155, 39, 0.18);
       text-align: center;
     }
-    .venue-patrika-card {
+    .venue-modern-card {
       max-width: 680px;
       margin: 0 auto;
-      background: var(--pastel-ivory);
-      border: 3px solid var(--temple-gold);
-      border-radius: 20px;
-      padding: 32px 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      position: relative;
+      background: #fbfbf9;
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      border-radius: 24px;
+      padding: 34px 24px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
     }
-    .venue-kalasam-icon {
-      width: 68px;
-      height: 68px;
-      background: var(--soft-kumkum);
-      color: var(--bright-gold);
+    .venue-modern-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--royal-emerald);
+      color: var(--gold-light);
       border-radius: 50%;
-      margin: -60px auto 15px;
+      margin: 0 auto 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.7rem;
-      border: 3px solid var(--temple-gold);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      font-size: 1.6rem;
+      box-shadow: 0 6px 18px rgba(30, 51, 37, 0.2);
     }
-    .venue-name-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 1.85rem;
-      color: var(--temple-maroon);
+    .venue-name-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--royal-emerald);
       margin-bottom: 6px;
     }
-    .venue-place-desc {
-      font-size: 1.12rem;
+    .venue-subtext {
+      font-size: 1.05rem;
       line-height: 1.5;
-      color: var(--text-brown);
-      margin-bottom: 20px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
     }
-    .btn-maps-andhra {
+    .btn-maps-action {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, #24578b, #153c63);
-      color: #fff;
+      background: var(--royal-emerald);
+      color: #ffffff;
       text-decoration: none;
       padding: 13px 28px;
       border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      box-shadow: 0 6px 18px rgba(36, 87, 139, 0.3);
-      border: 2px solid #719ec9;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 8px 22px rgba(30, 51, 37, 0.25);
+      border: 1px solid var(--gold-primary);
       transition: all 0.3s ease;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
-    .btn-maps-andhra:hover {
+    .btn-maps-action:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(36, 87, 139, 0.45);
+      box-shadow: 0 12px 28px rgba(30, 51, 37, 0.35);
     }
-    .map-embed-wrapper {
+    .map-modern-wrapper {
       width: 100%;
-      height: 280px;
-      border-radius: 14px;
+      height: 290px;
+      border-radius: 16px;
       overflow: hidden;
-      border: 2px solid var(--temple-gold);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     }
-    .map-embed-wrapper iframe {
+    .map-modern-wrapper iframe {
       width: 100%;
       height: 100%;
       border: 0;
     }
 
     /* ACTION BUTTONS (GOOGLE CALENDAR & WHATSAPP) */
-    .kalyanam-actions-row {
-      padding: 30px 20px;
+    .modern-actions-bar {
+      padding: 32px 20px;
       text-align: center;
-      background: var(--pastel-sand);
+      background: #f7f5f0;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 16px;
     }
-    .btn-kalyanam-action {
+    .btn-clean-action {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 24px;
+      padding: 13px 26px;
       font-size: 0.95rem;
-      font-weight: 700;
+      font-weight: 600;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
       color: #fff;
     }
-    .btn-cal-telugu {
-      background: #2e6e37;
-      border: 2px solid #7eb886;
+    .btn-clean-cal {
+      background: #254a33;
+      border: 1px solid #5a8a6b;
     }
-    .btn-wa-telugu {
-      background: #258f4a;
-      border: 2px solid #6ed191;
+    .btn-clean-wa {
+      background: #1b7a42;
+      border: 1px solid #4bc27a;
     }
-    .btn-kalyanam-action:hover {
+    .btn-clean-action:hover {
       transform: translateY(-2px);
     }
 
-    /* SUBHALEKHA FOOTER & DESIGNER ATTRIBUTION */
-    .andhra-footer {
-      background: var(--temple-maroon);
-      color: #fff;
-      padding: 35px 20px 25px;
+    /* CLEAN MODERN FOOTER & ATTRIBUTION */
+    .modern-footer {
+      background: var(--royal-emerald);
+      color: #ffffff;
+      padding: 38px 24px 28px;
       text-align: center;
-      border-top: 4px solid var(--temple-gold);
+      border-top: 1px solid var(--gold-primary);
     }
-    .aahwanam-tag {
-      font-size: 1.05rem;
-      color: var(--bright-gold);
-      margin-bottom: 6px;
+    .footer-host-label {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 500;
     }
-    .aahwana-karthalu {
-      font-size: 1.35rem;
-      font-weight: 700;
+    .footer-host-names {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
       color: #ffffff;
       margin-bottom: 6px;
     }
-    .subhabhinandana {
-      font-size: 0.95rem;
-      color: #f7e6b7;
+    .footer-compliments {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #dfdbd2;
       font-style: italic;
-      margin-bottom: 25px;
+      margin-bottom: 26px;
     }
-    .designer-credit-line {
-      border-top: 1px solid rgba(194, 144, 52, 0.35);
-      padding-top: 16px;
-      font-size: 0.85rem;
-      color: var(--bright-gold);
-      letter-spacing: 1.2px;
-      font-family: 'Montserrat', sans-serif;
+    .footer-designer-credit {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 18px;
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     @media (max-width: 600px) {
-      .bride-name, .groom-name { font-size: 1.8rem; }
-      .envelope-couple-text { font-size: 1.9rem; }
-      .kalyana-mandapam-wrapper { margin: 15px 10px; border-width: 4px; }
-      .mandapam-photo-frame img { height: 380px; }
-      .top-logo-circle img { width: 110px; }
-      .banana-tree-left, .banana-tree-right { display: none; }
-      .music-badge-pill { bottom: 15px; right: 15px; padding: 10px 16px; font-size: 0.8rem; }
+      .bride-name, .groom-name { font-size: 1.9rem; }
+      .entrance-names { font-size: 1.85rem; }
+      .invitation-container { margin: 16px 12px; border-radius: 24px; }
+      .modern-arch-frame img { height: 380px; }
+      .modern-music-btn { bottom: 16px; right: 16px; padding: 9px 16px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- BACKGROUND VIDEO: MUTED, LOOPING -->
-  <div class="bg-video-container">
+  <!-- BACKGROUND VIDEO: MUTED, CONTINUOUS LOOP -->
+  <div class="bg-video-wrapper">
     <video autoplay muted loop playsinline poster="DSC09288.jpg">
       <source src="couple-video.mp4" type="video/mp4" />
     </video>
   </div>
-  <div class="pastel-temple-overlay"></div>
+  <div class="modern-overlay"></div>
 
   <!-- Hidden YouTube Background Player for Shatamanam Bhavati Song -->
   <div style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
@@ -598,158 +596,125 @@
   </div>
 
   <!-- Floating Background Song Controller -->
-  <button class="music-badge-pill" id="musicToggleBtn" onclick="toggleAudio()" title="Play / Pause Wedding Song">
-    <i class="fa-solid fa-music" id="musicIcon"></i>
+  <button class="modern-music-btn" id="musicToggleBtn" onclick="toggleAudio()" title="Play / Pause Wedding Song">
+    <i class="fa-solid fa-volume-high" id="musicIcon"></i>
     <span id="musicText">Song: Shatamanam Bhavati</span>
   </button>
 
-  <!-- TRADITIONAL TELUGU SUBHALEKHA OPENING SCREEN -->
-  <div id="invitation-envelope">
-    <div class="envelope-subhalekha">
-      <img src="png.png" alt="Sri Ganesha" class="envelope-logo" onerror="this.src='png.jpg'" />
-      
-      <div class="envelope-subha-text">|| శ్రీరస్తు | శుభమస్తు | అవిఘ్నమస్తు ||</div>
-      <div class="envelope-couple-text">Vinitha &amp; Udayeshwar</div>
+  <!-- MINIMAL ROYAL GLASS ENTRANCE SCREEN -->
+  <div id="entrance-screen">
+    <div class="entrance-card">
+      <img src="png.png" alt="Lord Ganesha" class="entrance-logo" onerror="this.src='png.jpg'" />
 
-      <div class="open-subhalekha-btn" onclick="openInvitation()">
-        <i class="fa-solid fa-envelope-open-text"></i>
+      <div class="entrance-subtitle">The Wedding Celebration of</div>
+      <div class="entrance-names">Vinitha &amp; Udayeshwar</div>
+
+      <div class="entrance-open-btn" onclick="openInvitation()">
+        <i class="fa-solid fa-envelope-open"></i>
         <span>OPEN</span>
       </div>
-      <p style="color: var(--soft-kumkum); font-size: 0.85rem; margin-top: 15px; font-style: italic;">
-        Tap to open wedding invitation with music
+      <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 16px; letter-spacing: 0.5px;">
+        Tap to open invitation with music
       </p>
     </div>
   </div>
 
-  <!-- MAIN KALYANA MANDAPAM WRAPPER -->
-  <div class="kalyana-mandapam-wrapper">
+  <!-- MAIN GLASSMORPHIC INVITATION -->
+  <div class="invitation-container">
 
-    <!-- ANDHRA TEMPLE MANDAPAM HEADER -->
-    <header class="mandapam-header">
+    <!-- HEADER SECTION -->
+    <header class="modern-header">
       
-      <!-- Banana Tree Left SVG -->
-      <svg class="banana-tree-left" viewBox="0 0 50 120">
-        <path d="M25 120 Q24 60 25 20 Q10 10 2 30 Q15 45 23 50 Q10 65 5 85 Q18 90 25 95" fill="none" stroke="#3d6e40" stroke-width="4"/>
-        <path d="M25 20 Q40 10 48 30 Q35 45 27 50" fill="none" stroke="#3d6e40" stroke-width="4"/>
-        <path d="M25 20 C15 5 2 15 2 30 C15 35 25 25 25 20 Z" fill="#4d8b51" opacity="0.85"/>
-        <path d="M25 20 C35 5 48 15 48 30 C35 35 25 25 25 20 Z" fill="#4d8b51" opacity="0.85"/>
-        <circle cx="25" cy="55" r="5" fill="#f1c40f"/>
-        <circle cx="25" cy="63" r="4" fill="#f1c40f"/>
-      </svg>
-
-      <!-- Banana Tree Right SVG -->
-      <svg class="banana-tree-right" viewBox="0 0 50 120">
-        <path d="M25 120 Q24 60 25 20 Q10 10 2 30 Q15 45 23 50 Q10 65 5 85 Q18 90 25 95" fill="none" stroke="#3d6e40" stroke-width="4"/>
-        <path d="M25 20 Q40 10 48 30 Q35 45 27 50" fill="none" stroke="#3d6e40" stroke-width="4"/>
-        <path d="M25 20 C15 5 2 15 2 30 C15 35 25 25 25 20 Z" fill="#4d8b51" opacity="0.85"/>
-        <path d="M25 20 C35 5 48 15 48 30 C35 35 25 25 25 20 Z" fill="#4d8b51" opacity="0.85"/>
-        <circle cx="25" cy="55" r="5" fill="#f1c40f"/>
-        <circle cx="25" cy="63" r="4" fill="#f1c40f"/>
-      </svg>
-
-      <!-- Traditional Dravidian Temple Gopuram Silhouette -->
-      <svg class="temple-gopuram-svg" viewBox="0 0 400 110" fill="#c29034">
-        <!-- 5 Sacred Gold Kalasams -->
-        <path d="M200 4 L203 14 L197 14 Z M165 9 L168 18 L162 18 Z M235 9 L238 18 L232 18 Z M135 15 L138 22 L132 22 Z M265 15 L268 22 L262 22 Z"/>
-        <!-- Gopuram Tiers -->
-        <path d="M125 22 L275 22 L285 36 L115 36 Z" opacity="0.95"/>
-        <path d="M105 38 L295 38 L308 55 L92 55 Z" opacity="0.9"/>
-        <path d="M85 57 L315 57 L330 76 L70 76 Z" opacity="0.85"/>
-        <path d="M60 78 L340 78 L360 102 L40 102 Z" opacity="0.8"/>
-        <rect x="50" y="104" width="300" height="6" rx="3" fill="#c29034"/>
-      </svg>
-
-      <!-- Mango Leaves Toranam -->
-      <div class="mango-leaf-toranam"></div>
-
-      <!-- SINGLE TOP LOGO: png.png -->
-      <div class="top-logo-circle">
-        <img src="png.png" alt="Sri Ganesha" onerror="this.src='png.jpg'" />
+      <!-- Sole Clean Centered Ganesha Logo -->
+      <div class="logo-badge">
+        <img src="png.png" alt="Lord Ganesha" onerror="this.src='png.jpg'" />
       </div>
 
-      <div class="telugu-invocation-text">|| శ్రీరస్తు | శుభమస్తు | అవిఘ్నమస్తు ||</div>
+      <div class="telugu-header-hymn">|| శ్రీరస్తు | శుభమస్తు | అవిఘ్నమస్తు ||</div>
 
-      <p class="andhra-invitation-message">
+      <p class="solicit-text">
         We solicit your gracious presence with family &amp; friends on the auspicious occasion of the marriage of our grand daughter
       </p>
 
-      <div class="couple-kalyanam-block">
+      <div class="names-section">
         <span class="bride-name">Chi.La.Sow. Vinitha</span>
-        <p class="parents-telugu-desc">(Eldest D/o. Smt. &amp; Sri Mallepally Rajini - Madhusudhan)</p>
+        <p class="parents-note">(Eldest D/o. Smt. &amp; Sri Mallepally Rajini - Madhusudhan)</p>
 
-        <div class="kalyanam-knot">weds</div>
+        <div class="modern-ampersand">&amp;</div>
 
         <span class="groom-name">Chi. Udayeshwar</span>
-        <p class="parents-telugu-desc">(Eldest S/o. Smt. &amp; Sri Voleti Supriya - Shivananda)</p>
+        <p class="parents-note">(Eldest S/o. Smt. &amp; Sri Voleti Supriya - Shivananda)</p>
       </div>
     </header>
 
     <!-- TOP PHOTO (IMG_7241.jpg ONLY) -->
-    <section class="top-photo-mandapam">
-      <div class="mandapam-photo-frame">
+    <section class="top-photo-area">
+      <div class="modern-arch-frame">
         <img src="IMG_7241.jpg" alt="Vinitha and Udayeshwar" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80'" />
       </div>
     </section>
 
-    <!-- AKSHATHALU SHOWER BUTTON -->
-    <div class="akshathalu-action-bar">
-      <button class="btn-akshathalu-telugu" onclick="showerAkshathalu()">
-        <i class="fa-solid fa-hands-praying"></i>
-        <span>Shower Sacred Akshathalu &amp; Flowers</span>
+    <!-- CELEBRATION SHOWER BUTTON -->
+    <div class="celebration-action-area">
+      <button class="btn-celebrate" onclick="celebrateShower()">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Shower Blessings &amp; Flowers</span>
       </button>
     </div>
 
-    <!-- CEREMONY DETAILS: SUMUHURTHAM & LUNCH AT 1:00 PM -->
-    <section class="muhurtham-section">
-      <h2 class="section-telugu-title">Auspicious Occasions</h2>
+    <!-- CEREMONY DETAILS: SUMUHURTHAM (EXACT TIME 9:32 AM) & LUNCH AT 1:00 PM -->
+    <section class="itinerary-section">
+      <h2 class="modern-title">Ceremony &amp; Celebrations</h2>
       
-      <div class="muhurtham-cards-grid">
+      <div class="events-grid">
         <!-- Sumuhurtham Card -->
-        <div class="andhra-patrika-card">
+        <div class="modern-event-card">
           <i class="fa-solid fa-ring"></i>
           <h3>Sumuhurtham</h3>
-          <p><strong>Sunday, 22nd November 2026</strong></p>
-          <div class="haldi-badge">Dhanur Lagnam</div>
+          <div class="event-time-display">9:32 AM</div>
+          <p class="event-date-display">Sunday, 22nd November 2026</p>
+          <div class="modern-badge">Dhanur Lagnam</div>
         </div>
 
         <!-- Lunch Card -->
-        <div class="andhra-patrika-card">
+        <div class="modern-event-card">
           <i class="fa-solid fa-utensils"></i>
           <h3>Lunch</h3>
-          <p><strong>1:00 PM Onwards</strong></p>
-          <div class="haldi-badge">Traditional Feast</div>
+          <div class="event-time-display">1:00 PM</div>
+          <p class="event-date-display">Sunday, 22nd November 2026</p>
+          <div class="modern-badge">Grand Wedding Feast</div>
         </div>
       </div>
     </section>
 
     <!-- IN-BETWEEN PHOTO (DSC09288.jpg ONLY) -->
-    <section class="mid-photo-mandapam">
-      <div class="mid-mandapam-frame">
+    <section class="mid-photo-area">
+      <div class="modern-landscape-frame">
         <img src="DSC09288.jpg" alt="Vinitha and Udayeshwar" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80'" />
       </div>
     </section>
 
-    <!-- DEDICATED SACRED VENUE SLOT WITH GOOGLE MAPS -->
-    <section class="venue-mandapam-slot">
-      <div class="venue-patrika-card">
-        <div class="venue-kalasam-icon">
-          <i class="fa-solid fa-map-pin"></i>
+    <!-- DEDICATED VENUE SLOT WITH GOOGLE MAPS -->
+    <section class="venue-modern-section">
+      <div class="venue-modern-card">
+        <div class="venue-modern-icon">
+          <i class="fa-solid fa-location-dot"></i>
         </div>
         
-        <h2 class="venue-name-title">Vinayaka Convention</h2>
-        <p class="venue-place-desc">
+        <h2 class="venue-name-text">Vinayaka Convention</h2>
+        <p class="venue-subtext">
           Tandur, Vikarabad District,<br />
           Telangana, India
         </p>
 
         <!-- Direct Google Maps Action -->
-        <a class="btn-maps-andhra" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vinayaka+Convention+Tandur+Vikarabad">
+        <a class="btn-maps-action" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vinayaka+Convention+Tandur+Vikarabad">
           <i class="fa-solid fa-diamond-turn-right"></i>
           Open in Google Maps
         </a>
 
         <!-- Embedded Interactive Google Map -->
-        <div class="map-embed-wrapper">
+        <div class="map-modern-wrapper">
           <iframe 
             src="https://maps.google.com/maps?q=Vinayaka+Convention+Tandur+Vikarabad&t=&z=15&ie=UTF8&iwloc=&output=embed" 
             loading="lazy" 
@@ -760,23 +725,23 @@
     </section>
 
     <!-- CALENDAR & WHATSAPP ACTIONS -->
-    <div class="kalyanam-actions-row">
-      <a class="btn-kalyanam-action btn-cal-telugu" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Vinitha+%26+Udayeshwar&dates=20261122T040000Z/20261122T100000Z&details=Auspicious+Wedding+Ceremony+under+Dhanur+Lagnam+followed+by+Lunch+at+1:00+PM+at+Vinayaka+Convention,+Tandur.&location=Vinayaka+Convention,+Tandur,+Vikarabad+Dist.">
-        <i class="fa-solid fa-calendar-check"></i> Add to Google Calendar
+    <div class="modern-actions-bar">
+      <a class="btn-clean-action btn-clean-cal" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Vinitha+%26+Udayeshwar&dates=20261122T040200Z/20261122T100000Z&details=Sumuhurtham+at+9:32+AM+under+Dhanur+Lagnam+followed+by+Lunch+at+1:00+PM+at+Vinayaka+Convention,+Tandur.&location=Vinayaka+Convention,+Tandur,+Vikarabad+Dist.">
+        <i class="fa-solid fa-calendar-plus"></i> Add to Google Calendar
       </a>
 
-      <a class="btn-kalyanam-action btn-wa-telugu" target="_blank" href="https://api.whatsapp.com/send?text=You%20are%20cordially%20invited%20to%20the%20Wedding%20Ceremony%20of%20Vinitha%20%26%20Udayeshwar%20on%2022nd%20November%202026%20at%20Vinayaka%20Convention,%20Tandur!%20Lunch%20at%201:00%20PM.">
+      <a class="btn-clean-action btn-clean-wa" target="_blank" href="https://api.whatsapp.com/send?text=You%20are%20cordially%20invited%20to%20the%20Wedding%20Ceremony%20of%20Vinitha%20%26%20Udayeshwar%20on%20Sunday,%2022nd%20November%202026%20at%20Vinayaka%20Convention,%20Tandur.%20Sumuhurtham:%209:32%20AM,%20Lunch:%201:00%20PM.">
         <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
       </a>
     </div>
 
-    <!-- SUBHALEKHA FOOTER & DESIGNER ATTRIBUTION -->
-    <footer class="andhra-footer">
-      <div class="aahwanam-tag">ఆహ్వానించువారు (Invited by):</div>
-      <div class="aahwana-karthalu">Smt. Mallepally Saraswathi &amp; Sri Mallepally Venkatesham</div>
-      <p class="subhabhinandana">With best compliments from : Near &amp; Dear</p>
+    <!-- MODERN FOOTER & ATTRIBUTION -->
+    <footer class="modern-footer">
+      <div class="footer-host-label">Invited by</div>
+      <div class="footer-host-names">Smt. Mallepally Saraswathi &amp; Sri Mallepally Venkatesham</div>
+      <p class="footer-compliments">With best compliments from : Near &amp; Dear</p>
       
-      <div class="designer-credit-line">
+      <div class="footer-designer-credit">
         Designed By Rajesh Voleti
       </div>
     </footer>
@@ -817,7 +782,7 @@
 
     function openInvitation() {
       // Dismiss popup
-      document.getElementById('invitation-envelope').classList.add('hidden');
+      document.getElementById('entrance-screen').classList.add('hidden');
 
       // Start background song
       if (player && typeof player.playVideo === 'function') {
@@ -826,8 +791,8 @@
         updateMusicUI(true);
       }
 
-      // Initial sacred shower
-      showerAkshathalu();
+      // Initial celebration shower
+      celebrateShower();
     }
 
     function toggleAudio() {
@@ -848,7 +813,7 @@
       var icon = document.getElementById('musicIcon');
       var text = document.getElementById('musicText');
       if (playing) {
-        icon.className = 'fa-solid fa-music';
+        icon.className = 'fa-solid fa-volume-high';
         text.innerText = 'Song: Shatamanam Bhavati';
       } else {
         icon.className = 'fa-solid fa-volume-xmark';
@@ -856,22 +821,22 @@
       }
     }
 
-    // Sacred Yellow Rice (Pasupu Akshathalu), Marigold & Rose Petals Shower
-    function showerAkshathalu() {
+    // Modern Gold & Rose Petals Confetti Shower
+    function celebrateShower() {
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 85,
+          particleCount: 80,
           angle: 60,
           spread: 70,
           origin: { x: 0, y: 0.65 },
-          colors: ['#eed075', '#c29034', '#781726', '#3d6e40', '#ffffff']
+          colors: ['#c59b27', '#f4df91', '#1e3325', '#d68087', '#ffffff']
         });
         confetti({
-          particleCount: 85,
+          particleCount: 80,
           angle: 120,
           spread: 70,
           origin: { x: 1, y: 0.65 },
-          colors: ['#eed075', '#c29034', '#781726', '#3d6e40', '#ffffff']
+          colors: ['#c59b27', '#f4df91', '#1e3325', '#d68087', '#ffffff']
         });
       }
     }
